@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CRM обращений — Большеелховское поселение</title>
+  <link rel="stylesheet" href="/crm-assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <b>CRM обращений граждан</b>
+      <span>Администрация Большеелховского сельского поселения</span>
+    </div>
+    <button id="logoutBtn" class="ghost" hidden>Выйти</button>
+  </header>
+
+  <main class="layout">
+    <section id="loginView" class="panel login-panel">
+      <h1>Вход сотрудника</h1>
+      <p>Введите учетные данные сотрудника администрации. Для первого запуска: <b>admin</b> / <b>admin123</b>.</p>
+      <label>Адрес API
+        <input id="apiBase" placeholder="http://localhost:8000">
+      </label>
+      <label>Логин
+        <input id="username" value="admin" autocomplete="username">
+      </label>
+      <label>Пароль
+        <input id="password" type="password" value="admin123" autocomplete="current-password">
+      </label>
+      <button id="loginBtn" class="primary">Войти в CRM</button>
+      <p id="loginError" class="error"></p>
+    </section>
+
+    <section id="crmView" hidden>
+      <div class="dashboard-head">
+        <div>
+          <h1>Реестр обращений</h1>
+          <p id="currentUser">Сотрудник</p>
+        </div>
+        <div class="tools">
+          <select id="statusFilter"><option value="">Все статусы</option></select>
+          <input id="searchInput" placeholder="Поиск: номер, ФИО, телефон, тема">
+          <button id="refreshBtn" class="ghost">Обновить</button>
+        </div>
+      </div>
+
+      <div id="stats" class="stats"></div>
+
+      <div class="crm-grid">
+        <section class="panel list-panel">
+          <h2>Обращения</h2>
+          <div id="appealsList" class="appeals-list"></div>
+        </section>
+
+        <section class="panel detail-panel">
+          <div id="appealDetail" class="empty-detail">
+            Выберите обращение из списка слева.
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="/crm-assets/app.js"></script>
+</body>
+</html>

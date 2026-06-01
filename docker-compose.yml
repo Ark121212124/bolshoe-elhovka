@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: appeals_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: appeals_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - appeals_pg_data:/var/lib/postgresql/data
+
+volumes:
+  appeals_pg_data:
