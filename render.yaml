@@ -36,10 +36,6 @@ services:
         value: employee123
       - key: EMPLOYEE_FULL_NAME
         value: Сотрудник администрации
-    disk:
-      name: appeals-uploads
-      mountPath: /opt/render/project/src/backend/uploads
-      sizeGB: 1
 
   - type: web
     name: bolsheelxovskiy-appeals-site
